@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue example</title>
+  <style>
+    .main {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;;
+      margin: 50px 0;
+    }
+
+    .card-group {
+      display: flex;
+      flex-flow: column wrap;
+      width: 500px;
+    }
+
+    .card {
+      margin-bottom: 50px;
+      box-shadow: 0px 17px 42px rgb(0 0 0);
+      padding: 25px;
+    }
+
+    .card-title {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    .card-img {
+      max-width: 100%;
+      margin-bottom: 25px;
+      max-height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      font-size: 18px;
+    }
+
+    .card-action {
+      width: 300px;
+    }
+
+    .card-btn {
+      background: #fff;
+      color: #bbb;
+      border: 1px solid #bbbbbb;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .card-btn:hover {
+      background: #bbb;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<section class="main" id="app">
+  <div class="card-action">
+    <button class="card-btn" @click="coursive">Курсив</button>
+    <button class="card-btn" @click="addCard">Добавить еще</button>
+  </div>
+  <div class="card-group">
+    <div class="card" v-for="card in cards">
+      <span v-html="card"></span>
+    </div>
+  </div>
+</section>
+<script src="vue-easy-tinymce-1.0.1/examples/tinymce/tinymce.min.js"></script>
+<script src="vue-easy-tinymce-1.0.1/examples/vue/vue.min.js"></script>
+<script src="vue-easy-tinymce-1.0.1/dist/vue-easy-tinymce.min.js"></script>
+<script src="main.js"></script>
+</body>
+
+<!--script>
+  tinymce.init({
+    selector: '.card-body',  // change this value according to your HTML
+    toolbar : false,
+    menubar : false,
+    height  : 150,
+  });
+</script-->
