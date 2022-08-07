@@ -31,15 +31,29 @@ let app = new Vue({
       this.message = this.message.split('').reverse().join('')
     },
     addCard    : function () {
-      this.assignCard();
+      this.assignCard(); 
     },
     assignCard : async function () {
       let cardData = await this.getFakeData();
 
       this.card =
+
+        '<tinymce v-model="myModel"\n' +
+        '             :plugins="myPlugins" :toolbar1="myToolbar1" :toolbar2="myToolbar2"\n' +
+        '             :other="myOtherOptions">\n' +
+        '    </tinymce>   ' +
+        '' +
         '   <div class="card-title">' + cardData.texts.title + '</div>\n' +
         '   <img class="card-img" src="' + cardData.photo.url + '">\n' +
-        '   <tinymce class="card-body" :toolbar="false" :menubar="false" :height="150">' + cardData.texts.body + '</tinymce>';
+        '   <' +
+        'tinymce ' +
+        'class="card-body" ' +
+        ':toolbar="false" ' +
+        ':menubar="false" ' +
+        ':height="150"' +
+        '>' +
+        cardData.texts.body +
+        '</tinymce>';
 
       this.cards.push(this.card);
     }
